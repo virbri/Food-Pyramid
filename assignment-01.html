@@ -1,0 +1,280 @@
+<html>
+
+<head>
+    <style>
+
+        title {text-align: center;}
+        h1 {text-align: center;}
+        div {text-align: center;}
+        </style>
+    <link rel="stylesheet" type="text/css" href="assignment-01.css">
+    <script type="text/javascript" src="assignment-01.js"></script>  
+</head>
+
+<body onload="greenCircs()">
+    <h1>Food Pyramid
+    </h1>
+    <table>
+      <div class = "mChilder" id = "maskChildren" >
+        You are looking at the recomendations for <span id = "viewing"> people over 4 years </span>. Select to see recommendations for 
+    <button  onclick="childersYoung();" id = "childrenYounger">Children Aged 1-2 </button> or <button  onclick="childers();" id = "childrenC">Children Aged 3-4 </button>
+    </div>
+    </br>
+    <div class = "mAdultChild" id = "maskAdultChild">
+    You are looking at the recomendations for <span id = "viewing"> children aged 1-2</span>. Select to see recommendations for 
+   <button  onclick="childers();" id = "childrenC">Children Aged 3-4 </button> or <button onclick="adults();"  id = "adults" >People Over 4 Years</button>
+    </div>
+    <br />
+    <div>
+    
+      <div class = "mAdult" id = "maskAdult">
+        You are looking at the recomendations for <span id = "viewing"> children aged 3-4 </span>. Select to see recommendations for 
+        <button  onclick="childersYoung();" id = "childrenYounger">Children Aged 1-2 </button> or  <button onclick="adults();"  id = "adults" >People Over 4 Years</button>
+        </div>
+        <br />
+        <div>
+        <table></table>
+    </table>
+     <div   class="foodpyramid-container">
+        <div class="trapezium7">
+            </div>
+    <div class="trapezium6">
+        <div>
+            <table>
+            <td>
+                <button class="button" type="button" id="subRedButton"
+                 onclick="redSub(), redAdult(), redChild(), redChildYoung()" value="subtract">-</button>
+              </td>
+              <td>
+                <button  class="circle disabled nohover" id="red">0</button>
+              </td>
+              <td>
+                <button class="button" type="button"
+                 onclick="redAdd(), redAdult(), redChild(), redChildYoung()" value="add">+</button>
+              </td>
+            </table>
+        </div>
+    </div>
+
+    <div id="shelf" class="trapezium5">
+        <div>
+            <table  >
+            <td>
+                <button   class="button" type="button" id="subOrangeButton"
+                 onclick="orangeSub();orangeAdult(), orangeChild(), orangeChildYoung()" value="subtract">-</button>
+              </td>
+              <td>
+                <button  class="circle disabled nohover" id="orange">0</button>
+              </td>
+              <td>
+                <button class="button" type="button"
+                 onclick="orangeAdd(),orangeAdult(), orangeChild(), orangeChildYoung()" value="add">+</button>
+              </td>
+            </table>
+        </div>
+    </div>
+   
+    <div id="shelf" class="trapezium4">
+        <div>
+            <table>
+            <td>
+                <button class="button" type="button" id="subYellowButton"
+                 onclick="yellowSub(),yellowAdult(), yellowChild(), yellowChildYoung()" value="subtract">-</button>
+              </td>
+              <td>
+                <button  class="circle disabled nohover" id="yellow">0</button>
+              </td>
+              <td>
+                <button class="button" type="button"
+                 onclick="yellowAdd(),yellowAdult(), yellowChild(), yellowChildYoung()" value="add">+</button>
+              </td>
+            </table>
+        </div>
+    </div>
+    <div id="shelf" class="trapezium3">
+        <div>
+            <table>
+            <td>
+                <button class="button" type="button" id="subBlueButton"
+                 onclick="blueSub(),blueAdult(), blueChild(), blueChildYoung()" value="subtract">-</button>
+              </td>
+              <td>
+                <button  class="circle disabled nohover" id="blue">0</button>
+              </td>
+              <td>
+                <button class="button" type="button"
+                 onclick="blueAdd(),blueAdult(), blueChild(), blueChildYoung()" value="add">+</button>
+              </td>
+            </table>
+        </div>
+    </div>
+    <div id="shelf2" class="trapezium2">
+        <div>
+            <table>
+            <td>
+                <button class="button" type="button" id="subBrownButton"
+                 onclick="brownAdd(), brownAdult(), brownChild(), brownChildYoung()" value="subtract">-</button>
+              </td>
+              <td>
+                <button  class="circle disabled nohover" id="brown">0</button>
+              </td>
+              <td >
+                <button class="button" type="button"
+                 onclick="brownAdd(), brownAdult(), brownChild(), brownChildYoung()" value="add">+</button>
+              </td>
+            </table>
+        </div>
+    </div>
+    <div id="shelf1" class="trapezium1">
+        <div>
+            <table>
+            <td >
+                <button class="button" type="button" id="subGreenButton"
+                 onclick="greenSub(), greenAdult(), greenChild(), greenChildYoung()" value="subtract">-</button>
+              </td>
+              <td>
+                <button  class="circle disabled nohover" id="green">0</button>
+              </td>
+              <td >
+                <button class="button" type="button"
+                 onclick="greenAdd(), greenAdult(), greenChild(), greenChildYoung()" value="add">+</button>
+              </td>
+            </table>
+        </div>
+    </div>
+</div>
+</div>
+<div  >
+  <table class="center">
+    <td  >
+        <button  type="button" class="reset"
+         onclick="Reset()" >Reset Pyramid</button>
+      </td>
+  </table>
+    <table class="center">
+        <tr>
+            <td>
+                Too little amount is shown in orange :
+            </td>
+            <td>
+                <span class="guideO" id = "go"></span>
+            </td>
+            <td>
+                Just right amount is shown in green:
+            </td>
+            <td>
+                <span class="guideO" id = "gg"></span>
+            </td>
+            <td>
+                Too much amount is shown in red :
+            </td>
+            <td>
+                <span class="guideO" id = "gr"></span>
+            </td>
+        </tr>
+    </table>
+</div>
+</div>
+<div class = "center">
+<div class = "fixedHeightContainer">
+    <table class = "center">
+        <tr > <td><h1>Record what you ate today</h1></td> 
+            </tr>
+            <tr>
+               <td><label for="start">Enter Todays Date:</label>
+
+                <input type="date" id="datepicker" name="datepicker" value="0000-00-00" onchange="displayDate()" >
+            </tr>
+
+            <tr>
+                 <td >You chose: 	<span id="selectedDate"></span></td>
+             </tr>
+            
+        
+            <tr>
+                <td>
+                    <table>
+                        <tr>
+                            <th >Colour Guide</th>
+                            <th>&nbsp&nbsp&nbsp</th>
+                            <th>Food Type</th>
+                            <th>&nbsp&nbsp&nbsp</th>
+                            <th>Amount</th>
+                            <th>&nbsp&nbsp&nbsp</th>
+                            <th>In Range</th>
+                          
+                          </tr>
+                          
+                          <tr>
+                            <td class="guide6"></td>
+                            <th>&nbsp&nbsp&nbsp</th>
+                            <td >Foods & drinks high in fat, sugar & salt </td>
+                            <th>&nbsp&nbsp&nbsp</th>
+                            <td  class="center" id="redTwo">0</td>
+                            <th>&nbsp&nbsp&nbsp</th>
+                            <td  id="redRange">Ok</td>
+                          </tr>
+
+                          <tr>
+                            <td class="guide5"></td>
+                            <th>&nbsp&nbsp&nbsp</th>
+                            <td >Fats, spreads & oils</td>
+                            <th>&nbsp&nbsp&nbsp</th>
+                            <td  class="center" id="orangeTwo">0</td>
+                            <th>&nbsp&nbsp&nbsp</th>
+                            <td  id="orangeRange">Ok</td>
+                          </tr>
+
+                          <tr>
+                            <td class="guide4"></td>
+                            <th>&nbsp&nbsp&nbsp</th>
+                            <td >Meat, poultry, fish, eggs, beans & nuts</td>
+                            <th>&nbsp&nbsp&nbsp</th>
+                            <td  class="center" id="yellowTwo">0</td>
+                            <th>&nbsp&nbsp&nbsp</th>
+                            <td  id="yellowRange">Too Little</td>
+                          </tr>
+
+                          
+                          <tr>
+                            <td class="guide3"></td>
+                            <th>&nbsp&nbsp&nbsp</th>
+                            <td >Milk, yogurt & cheese</td>
+                            <th>&nbsp&nbsp&nbsp</th>
+                            <td  class="center" id="blueTwo">0</td>
+                            <th>&nbsp&nbsp&nbsp</th>
+                            <td  id="blueRange">Too Little</td>
+                          </tr>
+
+                          <tr>
+                            <td class="guide2"></td>
+                            <th>&nbsp&nbsp&nbsp</th>
+                            <td id = "grains">Wholemeal cereals & breads, potatoes, pasta & rice</td>
+                            <th>&nbsp&nbsp&nbsp</th>
+                            <td  class="center" id="brownTwo">0</td>
+                            <th>&nbsp&nbsp&nbsp</th>
+                            <td  id = "brownRange">Too Little</td>
+                          </tr>
+
+                          <tr>
+                            <td class="guide1"></td>
+                            <th>&nbsp&nbsp&nbsp</th>
+                            <td id = "veg" >Vegetables, salad and fruit</td>
+                            <th>&nbsp&nbsp&nbsp</th>
+                            <td  class="center" id="greenTwo">0</td>
+                            <th>&nbsp&nbsp&nbsp</th>
+                            <td  id = "greenRange">Too Little</td>
+                          </tr>
+                    </table>
+                </td>
+            </tr>
+    </table>
+  
+    <div>
+    </div>
+</div>
+
+
+</body>
+
+</html>
